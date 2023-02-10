@@ -25,7 +25,7 @@ app.use('/api/image', require('./middlewares/multer').router)
 app.use('/api/client', require('./routes/client'))
 
 
-
-app.listen(5000,()=>{
-    console.log(`server is running on port 5000`);
+const PORT = 5000
+app.listen(PORT,()=>{
+    console.log(`server is running on port ${PORT}`);
 })
