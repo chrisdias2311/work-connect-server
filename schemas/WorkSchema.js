@@ -6,19 +6,25 @@ const workSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    workerId: {
+    workerId: { 
         type: String,
         unique: true
     },
-    price:{
+    workTitle:{                    // 
         type: String,
     },
+    workDescription: {
+        type: String,             //
+    },
+    price:{
+        type: String,             //
+    },
     category:{
-        type: String,
+        type: String,             //
     },
     location: {
         type: String,
-        // required: true,
+        // required: true,        //
     },
     status:{
         type: String,

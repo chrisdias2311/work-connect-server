@@ -16,7 +16,7 @@ const URL = `localhost:5000`
 // Register Client 
 router.post("/register", multer.upload.single("file"), async (req, res) => {
     try {
-        const worker = await Worker.findOne({ email: req.body.email })
+        const worker = await Worker.findOne({ phone: req.body.phone })
         if (worker) return res.status(400).send("Account already exists");
         console.log("This is REQ FILE =", req.file);
 
@@ -49,6 +49,20 @@ router.post("/login", async(req, res) => {
     } catch (error) {
         res.send(err);
         console.log(err);
+    }
+})
+
+router.get('/invalidworkers', async (req, res) => {
+
+    try {
+        let invalidworkers = await Worker.find({ validity: 'No' });
+        if (invalidworkers.length > 0) {
+            res.send(invalidworkers);
+        } else {
+            res.send({ result: "No users found" })
+        }
+    } catch (error) {
+        console.log(error)
     }
 })
 

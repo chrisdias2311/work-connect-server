@@ -54,6 +54,20 @@ router.post("/login", async(req, res) => {
     }
 })
 
+router.get('/invalidclients', async (req, res) => {
+
+    try {
+        let invalidclients = await Client.find({ validity: 'No' });
+        if (invalidclients.length > 0) {
+            res.send(invalidclients);
+        } else {
+            res.send({ result: "No users found" })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 
 
 module.exports = router;
