@@ -32,10 +32,25 @@ router.post("/register", multer.upload.single("file"), async (req, res) => {
 
         const saved = await newClient.save();
         // res.send(newUser);
-        res.send("Your Request was sent Successfully!")
+        res.send(newClient);
     } catch (error) {
         console.log(error);
         res.send(error)
+    }
+})
+
+
+router.post("/login", async(req, res) => {
+    try {
+        let client = await Client.findOne(req.body);
+        if(client){
+            res.send(client);
+        }else{
+            res.send("No user found");
+        }
+    } catch (error) {
+        res.send(err);
+        console.log(err);
     }
 })
 

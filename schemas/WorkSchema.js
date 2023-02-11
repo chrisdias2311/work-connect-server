@@ -13,9 +13,15 @@ const workSchema = mongoose.Schema({
     price:{
         type: String,
     },
+    category:{
+        type: String,
+    },
     location: {
         type: String,
         // required: true,
+    },
+    status:{
+        type: String,
     },
 });
 
