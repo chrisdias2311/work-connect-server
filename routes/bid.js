@@ -23,7 +23,9 @@ router.post("/createbid", async (req, res) => {
         const newBid = new Bid({
             workerId: req.body.workerid,
             workId: req.body.workid,
-            price: req.body.price
+            price: req.body.price,
+            workerName: req.body.name,
+            workerExpertise: req.body.expertise
         })
         console.log("This is the bid", newBid)
 

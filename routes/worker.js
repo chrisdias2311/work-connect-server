@@ -66,5 +66,25 @@ router.get('/invalidworkers', async (req, res) => {
     }
 })
 
+router.put("/validateworker/:id", async(req, res)=> {
+    let result = await Worker.updateOne(
+        { _id: req.params.id },
+        {
+            $set: req.body
+        }
+    )
+    res.send(result);
+})
+
+router.put("/declineworker/:id", async(req, res)=> {
+    let result = await Worker.updateOne(
+        { _id: req.params.id },
+        {
+            $set: req.body
+        }
+    )
+    res.send(result);
+})
+
 
 module.exports = router;

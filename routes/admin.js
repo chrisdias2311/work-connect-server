@@ -32,6 +32,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async(req, res) => {
     try {
+        console.log(req.body)
         let admin = await Admin.findOne(req.body);
         if(admin){
             res.send(admin);

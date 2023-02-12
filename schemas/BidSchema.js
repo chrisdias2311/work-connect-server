@@ -13,6 +13,12 @@ const bidSchema = mongoose.Schema({
     price:{
         type: String,
     },
+    workerName:{
+        type: String,
+    },
+    workerExpertise:{
+        type: String,
+    }
 });
 
 
