@@ -42,7 +42,9 @@ router.post("/register", multer.upload.single("file"), async (req, res) => {
 
 router.post("/login", async(req, res) => {
     try {
+        console.log("The request:", req.body)
         let client = await Client.findOne(req.body);
+        console.log(client);
         if(client){
             res.send(client);
         }else{
@@ -55,7 +57,6 @@ router.post("/login", async(req, res) => {
 })
 
 router.get('/invalidclients', async (req, res) => {
-
     try {
         let invalidclients = await Client.find({ validity: 'No' });
         if (invalidclients.length > 0) {
@@ -67,6 +68,31 @@ router.get('/invalidclients', async (req, res) => {
         console.log(error)
     }
 })
+
+router.put("/validateclient/:id", async(req, res)=> {
+    let result = await Client.updateOne(
+        { _id: req.params.id },
+        {
+            $set: req.body
+        }
+    )
+    res.send(result);
+})
+
+router.put("/declineclient/:id", async(req, res)=> {
+    let result = await Client.updateOne(
+        { _id: req.params.id },
+        {
+            $set: req.body
+        }
+    )
+    res.send(result);
+})
+
+// router.patch("/validateclient/:id", (req, res)=>{
+//     const clientID = req.params.id;
+
+// })
 
 
 

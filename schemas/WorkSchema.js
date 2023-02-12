@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
 
 const workSchema = mongoose.Schema({
-    clientId: {
+    client: {
         type: String,
-        required: true,
-        unique: true
     },
-    workerId: { 
+    worker: { 
         type: String,
-        unique: true
+        unique: false
     },
     workTitle:{                    // 
         type: String,
@@ -21,6 +19,9 @@ const workSchema = mongoose.Schema({
     },
     category:{
         type: String,             //
+    },
+    date:{
+        type: String,  
     },
     location: {
         type: String,

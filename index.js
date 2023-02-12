@@ -24,6 +24,8 @@ app.use(passport.session());
 app.use('/api/image', require('./middlewares/multer').router)
 app.use('/api/client', require('./routes/client'))
 app.use('/api/worker', require('./routes/worker'))
+app.use('/api/work', require('./routes/work'))
+app.use('/api/bid', require('./routes/bid'))
 
 app.use('/api/admin', require('./routes/admin'))
 

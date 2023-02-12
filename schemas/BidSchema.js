@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const bidSchema = mongoose.Schema({
-    workID: {
+    workId: {
         type: String,
         // required: true,
         // unique: true
